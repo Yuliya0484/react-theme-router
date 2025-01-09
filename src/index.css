@@ -1,10 +1,13 @@
 body {
   width: 100%;
   padding: 0;
-  background-color: darkgray;
+  background-color: lightgrey;
 }
 ul,
 li,
+h1,
+h2,
+h3,
 p {
   margin: 0;
   padding: 0;
