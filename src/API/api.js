@@ -1,8 +1,12 @@
 import axios from "axios";
 
-export const fetchArticles = async (query, page) => {
-  const { data } = await axios.get(
-    `https://hn.algolia.com/api/v1/search?query=${query}&page=${page}`
-  );
+axios.defaults.baseURL = "https://dummyjson.com";
+
+export const fetchAllUsers = async () => {
+  const { data } = await axios.get("/users");
+  return data.users;
+};
+export const fetchAllUserById = async (id) => {
+  const { data } = await axios.get(`/users/${id}`);
   return data;
 };

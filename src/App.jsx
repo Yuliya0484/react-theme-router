@@ -6,6 +6,8 @@ import NotFound from "./pages/NotFound/NotFound";
 import Aim from "./components/NestedRouted/Aim";
 import Company from "./components/NestedRouted/Company";
 import Team from "./components/NestedRouted/Team";
+import Users from "./pages/Users/Users";
+import UserDetails from "./pages/UserDetails/UserDetails";
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
           <Route path="team" element={<Team />} />
           <Route path="company" element={<Company />} />
         </Route>
+        <Route path="/users" element={<Users />} />
+        <Route path="/users/:userId" element={<UserDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
