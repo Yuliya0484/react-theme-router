@@ -33,3 +33,12 @@ img {
     color: white;
   }
 }
+.postDetails {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 2fr 4fr;
+}
+.outlet {
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px 5px darkgrey;
+}

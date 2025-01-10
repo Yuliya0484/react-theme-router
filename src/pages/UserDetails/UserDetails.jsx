@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { fetchAllUserById } from "../../API/api";
 import s from "./UserDetails.module.css";
 
@@ -43,6 +43,7 @@ const UserDetails = () => {
           {/*localhost:5173/users/5/posts */}
         </ul>
       </nav>
+      <Outlet />
     </div>
   );
 };

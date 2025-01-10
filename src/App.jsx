@@ -8,6 +8,8 @@ import Company from "./components/NestedRouted/Company";
 import Team from "./components/NestedRouted/Team";
 import Users from "./pages/Users/Users";
 import UserDetails from "./pages/UserDetails/UserDetails";
+import UserPosts from "./components/NestedRouted/UserPosts";
+import PostsDetails from "./components/NestedRouted/PostsDetails";
 
 const App = () => {
   return (
@@ -21,8 +23,14 @@ const App = () => {
           <Route path="team" element={<Team />} />
           <Route path="company" element={<Company />} />
         </Route>
+
         <Route path="/users" element={<Users />} />
-        <Route path="/users/:userId" element={<UserDetails />} />
+        <Route path="/users/:userId" element={<UserDetails />}>
+          <Route path="posts" element={<UserPosts />}>
+            <Route path="postId" element={<PostsDetails />} />
+          </Route>
+          <Route path="info" element={<h3>Some info</h3>} />
+        </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>

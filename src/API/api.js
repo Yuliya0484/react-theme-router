@@ -15,3 +15,7 @@ export const fetchPostsByUserId = async (userId) => {
   const { data } = await axios.get(`/posts/user/${userId}`);
   return data.posts;
 };
+export const fetchPostByPostId = async (postId) => {
+  const { data } = await axios.get(`/posts/${postId}`);
+  return data;
+};
