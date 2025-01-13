@@ -19,6 +19,14 @@ const App = () => {
         <Route path="/" element={<Home />} />
 
         <Route path="/about" element={<About />}>
+          <Route
+            index
+            element={
+              <h3>
+                Click on the top links to see more information about our company
+              </h3>
+            }
+          />
           <Route path="aim" element={<Aim />} />
           <Route path="team" element={<Team />} />
           <Route path="company" element={<Company />} />

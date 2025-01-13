@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
-import { fetchAllUserById } from "../../API/api";
+import { fetchUserById } from "../../API/api";
 import s from "./UserDetails.module.css";
 
 const UserDetails = () => {
   const { userId } = useParams();
   console.log(userId);
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const getData = async () => {
-      const user = await fetchAllUserById(userId);
+      setIsLoading(true);
+      const user = await fetchUserById(userId);
       setUser(user);
+      setIsLoading(false);
     };
     getData();
   }, [userId]);

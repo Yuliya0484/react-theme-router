@@ -17,7 +17,7 @@ const UserPosts = () => {
       <section>
         Users posts
         <ul>
-          {posts.length === 0 && <h3>No posts yet...</h3>}
+          {!posts.length && <h3>No posts yet...</h3>}
           {posts.map((item) => (
             <Link key={item.id} to={item.id.toString()}>
               <li>{item.title}</li>
