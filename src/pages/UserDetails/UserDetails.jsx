@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { fetchUserById } from "../../API/api";
 import s from "./UserDetails.module.css";
 
@@ -7,22 +7,30 @@ const UserDetails = () => {
   const { userId } = useParams();
   console.log(userId);
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const getData = async () => {
-      setIsLoading(true);
       const user = await fetchUserById(userId);
       setUser(user);
-      setIsLoading(false);
     };
     getData();
   }, [userId]);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigate("/");
+  //   }, 3000);
+  // }, [navigate]);
+
   if (!user) {
     return <h2>Loading...</h2>;
   }
   return (
     <div className={s.user_box}>
       <h3>User Details</h3>
+      <button className="button" onClick={() => navigate(-1)}>
+        Go back
+      </button>
       <img className={s.user_image} src={user.image} alt="User image" />
       <h3 className={s.user_name}>
         {user.lastName}
